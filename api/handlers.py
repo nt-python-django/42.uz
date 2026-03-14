@@ -33,7 +33,6 @@ def login(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     user_id = update.effective_user.id
     first_name = update.effective_chat.first_name
-    last_name = update.effective_chat.last_name
 
     existing_user = User.objects.filter(username=user_id).first()
     if not existing_user:
@@ -44,4 +43,3 @@ def login(update: Update, context: CallbackContext):
     opt = randint(100000, 999999)
 
     update.message.reply_text(f"Your OTP is: {opt}")
-    
